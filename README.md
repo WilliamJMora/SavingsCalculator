@@ -19,11 +19,9 @@ Differential Equations Savings Calculators
 
   <img width="598" alt="Formula1" src="https://github.com/WilliamJMora/SavingsCalculator/assets/116101032/e441632c-eab8-4a8b-8475-c1ed9d72e15b">
 
-
   2. If the goal from problem 1 is wanted in 2 years instead of 4.43, how much money would need to be deposited each week?
 
   <img width="576" alt="Formula2" src="https://github.com/WilliamJMora/SavingsCalculator/assets/116101032/b62a288f-55fa-40a8-a6c0-83fdfa30b801">
-
 
   3. There is an initial condition of $400. The account has an interest rate of 1.1%. $20 is deposited per week. How much money would be in the account after 4 years?
 
