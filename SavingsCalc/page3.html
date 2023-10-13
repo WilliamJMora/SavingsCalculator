@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+    <html>
+
+        <head>
+
+            <title>Calculator 3</title>
+
+            <style>
+
+                .top {
+
+                    text-align: center;
+                    padding-top: 10px;
+
+                }
+
+                .info {
+
+                padding-left: 20px;
+                padding-top: 25px;
+                font-size: 18px;
+                font-family: Arial, Helvetica, sans-serif;
+
+                }
+
+                .title {
+
+                    padding-top: 25px;
+                    text-align: center;
+                    font-size: 24px;
+                    font-family: Arial, Helvetica, sans-serif;
+
+                }
+
+                .answer {
+
+                    background-color: lightgrey;
+                    padding-left: 20px;
+                    font-size: 18px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    height: 24px;
+                    width: 440px;
+
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            <div class="top">
+
+                <img src="pagelogo.png" style="width:20%;height:20%">
+                
+            </div>
+
+            <div class="title">
+
+                Amount After Given Time
+
+            </div>
+
+            <div class="info">
+
+                This calculates the amount of money after a period of time.<br><br>
+
+                Enter your interest rate:<br>
+                <input name="interest" type="text" id="interest" placeholder="ex: .0006 (.06%)"><br><br>
+
+                Enter the length of time for you to save:<br>
+                <input name="length" type="text" id="length">
+                <select name="length2" id="length2">
+                    <option value="year">Year(s)</option>
+                    <option value="month">Month(s)</option>
+                    <option value="week">Week(s)</option>
+                    <option value="day">Day(s)</option>
+                </select><br><br>
+
+                Enter your contribution frequency:<br>
+                <input name="deposit" type="text" id="deposit">
+                <select name="time" id="time">
+                    <option value="year">per Year</option>
+                    <option value="month">per Month</option>
+                    <option value="week">per Week</option>
+                    <option value="day">per Day</option>
+                </select><br><br>
+
+                Enter your current balance:<br>
+                <input name="balance" type="text" id="balance"><br><br>
+
+                <button onclick="calculate()">Submit</button><br><br>
+
+            </div>
+
+            <div class="answer">
+
+                <p id="ans"></p>
+
+            </div>
+
+            <script>
+
+                function calculate() {
+
+                    var interest = document.getElementById("interest").value;
+                    interest = Number(interest.replace("$", "").replace(",", "").replace("%", ""));
+
+                    var length = document.getElementById("length").value;
+                    length = Number(length.replace("$", "").replace(",", ""));
+
+                    var length2 = document.getElementById("length2").value;
+
+                    var deposit = document.getElementById("deposit").value;
+                    deposit = Number(deposit.replace("$", "").replace(",", ""));
+
+                    var time = document.getElementById("time").value;
+
+                    var balance = document.getElementById("balance").value;
+                    balance = Number(balance.replace("$", "").replace(",", ""));
+
+                    if (length2 == "year") {
+                        length = length;
+                    } else if (length2 == "month") {
+                        length /= 12;
+                    } else if (length2 == "week") {
+                        length /= 52;
+                    } else if (length2 == "day") {
+                        length /= 365;
+                    }
+
+                    if (time == "year") {
+                        deposit = deposit;
+                    } else if (time == "month") {
+                        deposit *= 12;
+                    } else if (time == "week") {
+                        deposit *= 52;
+                    } else if (time == "day") {
+                        deposit *= 365;
+                    }
+                    
+                    c = (balance * interest) + deposit;
+                    a = c * (Math.E ** (interest * length));
+                    b = a - deposit;
+
+                    res = b / interest;
+                    result = Number(Math.round(res + "e2") + "e-2").toFixed(2);
+                    document.getElementById("ans").innerHTML = "You will have " + result + " in your account after " + length + " year(s)."
+
+                }
+
+            </script>
+
+        </body>
+
+    </html>
