@@ -39,7 +39,7 @@
                     padding-left: 20px;
                     font-size: 18px;
                     font-family: Arial, Helvetica, sans-serif;
-                    height: 45px;
+                    height: 24px;
                     width: 440px;
 
                 }
@@ -146,7 +146,7 @@
 
                     res = b / interest;
                     result = Number(Math.round(res + "e2") + "e-2").toFixed(2);
-                    document.getElementById("ans").innerHTML = "You will have " + result + " in your account after " + length + " year(s)."
+                    document.getElementById("ans").innerHTML = "You will have " + result + " in your account after " + length.toFixed(2) + " year(s).";
 
                 }
 
